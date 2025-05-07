@@ -46,6 +46,9 @@ def main():
             if ast.is_colliding(player):
                 print("Game over!")
                 sys.exit()
+            for sh in shots:
+                if ast.is_colliding(sh):
+                    ast.kill()
 
 
 if __name__ == "__main__":
