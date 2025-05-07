@@ -48,7 +48,11 @@ def main():
                 sys.exit()
             for sh in shots:
                 if ast.is_colliding(sh):
-                    ast.kill()
+                    ast.split()
+                    if ast.radius <= ASTEROID_MIN_RADIUS:
+                        ast.kill()
+                    else:
+                        ast.kill()
 
 
 if __name__ == "__main__":
