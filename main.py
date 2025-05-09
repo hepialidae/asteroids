@@ -11,6 +11,7 @@ def main():
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     clock = pygame.time.Clock()
     dt = 0
+    score = 0
 
     # Initialize groups
     updatable = pygame.sprite.Group()
@@ -45,12 +46,14 @@ def main():
         for ast in asteroids:
             if ast.is_colliding(player):
                 print("Game over!")
+                print(f"Score: {score}")
                 sys.exit()
             for sh in shots:
                 if ast.is_colliding(sh):
                     ast.split()
                     if ast.radius <= ASTEROID_MIN_RADIUS:
                         ast.kill()
+                        score += 1
                     else:
                         ast.kill()
 
